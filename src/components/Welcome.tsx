@@ -11,7 +11,7 @@ import { Form } from "./WelcomForm";
 const defaultAddress = "0xCF8e569A97C423952DdFf902375C7C76549A6A90";
 
 const companyCommonStyles =
-	"min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400/20 text-sm font-light text-white/80";
+	"min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] text-sm font-light text-white/80";
 
 const Welcome = () => {
 	const [address, setAddress] = useState(defaultAddress);
@@ -31,7 +31,7 @@ const Welcome = () => {
 						Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.
 					</p>
 
-					<Button className="mt-4" variant="outline">
+					<Button className="mt-4 bg-accent-blue rounded-lg" variant="outline">
 						Connect Wallet
 					</Button>
 

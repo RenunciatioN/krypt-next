@@ -16,6 +16,7 @@ body {
 
 @layer base {
 	:root {
+		--accent-color: #0084ff;
 		--background: 240 10% 3.9%;
 		--foreground: 0 0% 98%;
 		--card: 240 10% 3.9%;
@@ -35,6 +36,7 @@ body {
 		--border: 240 3.7% 15.9%;
 		--input: 240 3.7% 15.9%;
 		--ring: 240 4.9% 83.9%;
+		--radius: 7px;
 	}
 
 	.dark {
@@ -125,8 +127,8 @@ body {
 
 .text-gradient {
 	background-color: #fff;
-	background-image: radial-gradient(at 4% 36%, hsla(0, 0%, 100%, 1) 0, transparent 53%),
-		radial-gradient(at 100% 60%, rgb(0, 0, 0) 0, transparent 50%);
+	background-image: radial-gradient(at 4% 36%, #0084ff, transparent 53%),
+		radial-gradient(at 100% 60%, #0084ff, transparent 50%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }

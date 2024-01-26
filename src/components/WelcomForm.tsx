@@ -9,7 +9,7 @@ interface IFormProps {
 }
 
 const inputClass =
-	"w-full rounded-md bg-gray-600/30 py-2 px-4 mb-2 focus:outline-1 focus:outline focus:outline-white/30";
+	"w-full rounded-[5px] bg-gray-200/10  py-2 px-4 mb-2 focus:outline-1 focus:outline focus:outline-white/30";
 
 export const Form: FC<IFormProps> = ({ handleSubmit, setAddress }) => {
 	return (
@@ -25,15 +25,13 @@ export const Form: FC<IFormProps> = ({ handleSubmit, setAddress }) => {
 			<input placeholder="Keyword (Gif)" className={inputClass} name="keyword" type="text" onChange={() => {}} />
 			<input placeholder="Enter Message" className={inputClass} name="message" type="text" onChange={() => {}} />
 
-			<div className="h-[1px] w-full bg-gray-400/40 my-2" />
-
-			{true ? (
+			{false ? (
 				<Loader />
 			) : (
 				<button
 					type="button"
 					onClick={handleSubmit}
-					className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+					className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer transition-all duration-500"
 				>
 					Send now
 				</button>
