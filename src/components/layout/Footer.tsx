@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Image from "next/image";
-
-import logo from "@/assets/images/logo.png";
-import { navLinks } from "@/shared/constants/navigation";
 import Link from "next/link";
+
+import { navLinks } from "@/shared/constants/routes";
+import logo from "@/assets/images/logo.png";
 
 interface IProps {}
 

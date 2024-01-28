@@ -1,5 +1,8 @@
+"use client";
+
 import { FC } from "react";
 import Image, { StaticImageData } from "next/image";
+import { useMediaQuery } from "@uidotdev/usehooks";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../../ui/carousel";
 import { currencyReserveData } from "@/data/currencyReserve";
 
@@ -12,20 +15,29 @@ interface ISlideItemProps {
 }
 
 const СurrencyReserve: FC<IProps> = () => {
+	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+
 	return (
-		<div className="pt-10 pb-12 gradient-bg-carusel">
+		<div className="pt-10 pb-12 gradient-bg-carusel ">
 			<h2 className="text-3xl text-center mb-10 text-white/80">Our Reserves for exchange</h2>
 
-			<Carousel className="max-w-[1000px] mx-auto">
+			<Carousel className="max-w-[1000px] mx-auto relative">
 				<CarouselContent>
 					{currencyReserveData.map((coin, index) => (
-						<CarouselItem key={coin.symbol + index} className="basis-1/3 flex justify-center">
+						<CarouselItem
+							key={coin.symbol + index}
+							className="basis-1/1 lg:basis-2/5 xl:basis-1/3 flex justify-center"
+						>
 							<SlideItem {...coin} />
 						</CarouselItem>
 					))}
 				</CarouselContent>
-				<CarouselPrevious variant="ghost" />
-				<CarouselNext variant="ghost" />
+				{!isSmallDevice && (
+					<>
+						<CarouselPrevious variant="ghost" />
+						<CarouselNext variant="ghost" />
+					</>
+				)}
 			</Carousel>
 		</div>
 	);

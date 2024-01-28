@@ -149,3 +149,25 @@ main {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
+
+.ww {
+	position: relative;
+}
+
+.ww::after {
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%);
+
+	background-color: #0084ff6e;
+	border-radius: 100%;
+
+	width: 1400px;
+	height: 400px;
+
+	z-index: -1;
+
+	filter: blur(175px);
+}

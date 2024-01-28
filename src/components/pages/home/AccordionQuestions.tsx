@@ -9,10 +9,10 @@ interface IProps {}
 
 const AccordionQuestions: FC<IProps> = () => {
 	return (
-		<section className=" py-20 gradient-bg-question">
+		<section className=" py-20 gradient-bg-question px-4">
 			<h2 className="text-2xl text-center mb-10">FAQ</h2>
 
-			<div className="max-w-[700px] mx-auto">
+			<div className="max-w-[800px] mx-auto">
 				<Accordion type="single" collapsible>
 					{questionsData.map(({ text, title }, index) => (
 						<AccordionItem key={index} value={`item-${index + 1}`}>

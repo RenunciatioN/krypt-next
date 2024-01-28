@@ -32,7 +32,7 @@ const CoinsPage = async () => {
 						<TableRow>
 							<TableHead className="w-1/5">Name</TableHead>
 							<TableHead className="text-center">Symbol</TableHead>
-							<TableHead className="text-center">Price</TableHead>
+							<TableHead className="text-center">Last price</TableHead>
 							<TableHead className="text-right">Volume 24h</TableHead>
 						</TableRow>
 					</TableHeader>

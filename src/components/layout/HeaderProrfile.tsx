@@ -1,10 +1,12 @@
 "use client";
 
-import { AuthService } from "@/services/auth.service";
-import { LogOut, MenuIcon, User } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FC } from "react";
+import { useRouter } from "next/navigation";
+import { LogOut, MenuIcon, User } from "lucide-react";
+
+import { AuthService } from "@/services/auth.service";
+import { routes } from "@/shared/constants/routes";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import {
@@ -45,7 +47,7 @@ const HeaderProrfile: FC<IProps> = () => {
 				<DropdownMenuSeparator />
 				<DropdownMenuGroup>
 					<DropdownMenuItem asChild>
-						<Link href={`/profile`}>
+						<Link href={routes.profile}>
 							<User className="mr-2 h-4 w-4" />
 							<span>Profile</span>
 						</Link>

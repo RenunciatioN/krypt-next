@@ -24,6 +24,7 @@ export default function RootLayout({
 			<body className={` ${inter.className}`}>
 				<AppProvider>
 					<Navbar />
+
 					<main>{children}</main>
 				</AppProvider>
 				<Toaster theme="dark" />
