@@ -1,6 +1,12 @@
 "use client";
 
+import { AuthService } from "@/services/auth.service";
+import { LogOut, MenuIcon, User } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FC } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Button } from "../ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -10,12 +16,6 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { Button } from "../ui/button";
-import Link from "next/link";
-import { LogOut, MenuIcon, User } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { useRouter } from "next/navigation";
-import { ModeToggle } from "../ui/theme-toggle";
 
 interface IProps {}
 
@@ -23,7 +23,7 @@ const HeaderProrfile: FC<IProps> = () => {
 	const router = useRouter();
 
 	return (
-		<DropdownMenu >
+		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button variant="ghost" className="p-px rounded-full self-center h-8 w-8">
 					{false ? (
@@ -56,7 +56,14 @@ const HeaderProrfile: FC<IProps> = () => {
 							<span>Светлый режим</span>
 						</div>
 					</DropdownMenuItem> */}
-					<DropdownMenuItem disabled={false} onClick={() => router.push("/")}>
+					<DropdownMenuItem
+						disabled={false}
+						onClick={() => {
+							AuthService.logout();
+							router.push("/");
+							router.refresh();
+						}}
+					>
 						<LogOut className="mr-2 h-4 w-4" />
 						<span>Sign out</span>
 					</DropdownMenuItem>

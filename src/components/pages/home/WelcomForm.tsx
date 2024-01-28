@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, FormEvent } from "react";
-import { Loader } from "./Loader";
+import { Loader } from "../../Loader";
 
 interface IFormProps {
 	handleSubmit: (e: FormEvent) => void;

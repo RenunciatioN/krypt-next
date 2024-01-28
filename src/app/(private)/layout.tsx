@@ -7,9 +7,12 @@ interface PrivateLayoutProps {
 }
 
 const PrivateLayout: FC<PrivateLayoutProps> = async ({ children }) => {
-	await getProfile().catch(() => {
+	const user = await getProfile().catch((e) => {
+		console.log("@getProfile-error", e);
 		redirect("/auth");
 	});
+
+	if (!user) redirect("/auth");
 
 	return <>{children}</>;
 };

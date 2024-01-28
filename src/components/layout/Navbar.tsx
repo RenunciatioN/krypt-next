@@ -2,14 +2,13 @@ import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import logo from "@/assets/images/logo.png";
-
 import { Button } from "../ui/button";
 import { MobileNav } from "./MobileNav";
-import { cookies, headers } from "next/headers";
 import { HeaderProrfile } from "./HeaderProrfile";
 import { isAuth } from "@/utils/isAuth";
-import { navLinks } from "@/constants/navigation";
+import { navLinks } from "@/shared/constants/navigation";
+
+import logo from "@/assets/images/logo.png";
 
 interface INavBarItemProps {
 	title: string;

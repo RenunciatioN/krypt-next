@@ -1,6 +1,8 @@
-import axios from "axios";
-import { API_URL } from "@/shared/constants";
-import { COOKIE } from "@/constants/cookies";
+import axios, { AxiosError, AxiosResponse } from "axios";
+
+import { COOKIE } from "@/shared/constants/cookies";
+
+const API_URL = "http://localhost:5000";
 
 const api = axios.create({
 	baseURL: API_URL,
@@ -14,13 +16,36 @@ api.interceptors.request.use(async (config) => {
 		const { cookies } = await import("next/headers");
 
 		const accessToken = cookies().get(COOKIE.ACCESS_TOKEN)?.value;
+		const refreshToken = cookies().get(COOKIE.REFRESH_TOKEN)?.value;
 
-		if (accessToken) {
-			config.headers.set("cookie", `${COOKIE.ACCESS_TOKEN}=${accessToken}`);
+		if (accessToken && refreshToken) {
+			config.headers.set(
+				"cookie",
+				`${COOKIE.ACCESS_TOKEN}=${accessToken};${COOKIE.REFRESH_TOKEN}=${refreshToken}`
+			);
 		}
 	}
 
 	return config;
 });
+api.interceptors.response.use(
+	async (config) => {
+		return config;
+	},
+	async (error: AxiosError) => {
+		const originalRequest = error.config;
+
+		if (error.response?.status !== 401 && originalRequest) {
+			try {
+				const data = await api.get<AxiosResponse>(`${API_URL}/refresh-token`, { withCredentials: true });
+				console.log("@refresh", data);
+
+				return api.request(originalRequest);
+			} catch (error) {
+				console.log("@error interceptor", error);
+			}
+		}
+	}
+);
 
 export { api };

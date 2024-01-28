@@ -15,4 +15,7 @@ export const AuthService = {
 			new Error(error.message);
 		}
 	},
+	async logout() {
+		await api.get(`/logout`);
+	},
 };

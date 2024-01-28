@@ -1,16 +1,19 @@
-import { Services } from "@/components/Services";
-import { Transactions } from "@/components/Transactions";
-import { Welcome } from "@/components/Welcome";
+import { Services } from "@/components/pages/home/Services";
+import { Transactions } from "@/components/pages/home/Transactions";
+import { Welcome } from "@/components/pages/home/Welcome";
+import { Footer } from "@/components/layout/Footer";
+import { СurrencyReserve } from "@/components/pages/home/СurrencyReserve";
+import { AccordionQuestions } from "@/components/pages/home/AccordionQuestions";
 
 export default function HomePage() {
 	return (
-		<main className="gradient-bg-welcome">
-			<div className="gradient-bg-welcome">
-				<Welcome />
-			</div>
-
+		<>
+			<Welcome />
 			<Services />
 			<Transactions />
-		</main>
+			<СurrencyReserve />
+			<AccordionQuestions />
+			<Footer />
+		</>
 	);
 }

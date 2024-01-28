@@ -38,6 +38,12 @@ export const useSignInForm = () => {
 
 			router.replace("/profile");
 		},
+		onError(error) {
+			toast.error("Error", {
+				cancel: { label: "Close" },
+				description: error.message,
+			});
+		},
 	});
 
 	const onSubmit = signInForm.handleSubmit(async (formData) => {

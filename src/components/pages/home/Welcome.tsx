@@ -1,12 +1,12 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
+import { SiEthereum } from "react-icons/si";
 
 import { shortenAddress } from "@/utils/shortenAddress";
-import { Button } from "./ui/button";
 import { Form } from "./WelcomForm";
+import { Button } from "../../ui/button";
 
 const defaultAddress = "0xCF8e569A97C423952DdFf902375C7C76549A6A90";
 
@@ -21,7 +21,7 @@ const Welcome = () => {
 	};
 
 	return (
-		<div className="flex w-full justify-center items-center">
+		<div className="flex w-full justify-center items-center gradient-bg">
 			<div className="flex md:flex-row flex-col gap-24 items-center justify-between md:p-20 py-12 px-4">
 				<div className="flex flex-1 justify-start items-start flex-col mf:mr-10">
 					<h1 className="text-3xl font-semibold sm:text-5xl  text-white text-gradient py-1">

@@ -1,13 +1,10 @@
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-
+import { toast } from "sonner";
 import { useMutation } from "@tanstack/react-query";
 
 import { useStage } from "@/app/auth/components/context/authStage/useStage";
 import { AuthService } from "@/services/auth.service";
-
 import { useUserData } from "../context/userData/useUserData";
-import { toast } from "sonner";
 
 interface SingUpForm {
 	login: string;
