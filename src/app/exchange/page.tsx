@@ -2,9 +2,9 @@ import { FormExchange } from "@/components/pages/exchange/FormExchange";
 
 const ExchangePage = () => {
 	return (
-		<div className="pt-20 ww">
+		<div className="pt-20 ">
 			<div className="w-[500px] mx-auto ">
-				<FormExchange />
+				<FormExchange coinList={[]} />
 			</div>
 		</div>
 	);

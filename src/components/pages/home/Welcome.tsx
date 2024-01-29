@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+
 import { BsInfoCircle } from "react-icons/bs";
 import { SiEthereum } from "react-icons/si";
 
 import { shortenAddress } from "@/utils/shortenAddress";
 import { Button } from "../../ui/button";
 import { routes } from "@/shared/constants/routes";
-import { Input } from "@/components/ui/Input";
+import { FormExchange } from "../exchange/FormExchange";
 
 const defaultAddress = "0xCF8e569A97C423952DdFf902375C7C76549A6A90";
 
@@ -16,8 +16,6 @@ const companyCommonStyles =
 	"min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] text-sm font-light text-white/80";
 
 const Welcome = () => {
-	const [address, setAddress] = useState("");
-
 	return (
 		<div className="flex w-full justify-center items-center gradient-bg ">
 			<div className="flex md:flex-row flex-col gap-10 items-center justify-between w-[1200px] md:py-20 py-12 px-4">
@@ -45,7 +43,7 @@ const Welcome = () => {
 					</div>
 				</div>
 
-				<div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
+				<div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 ">
 					<div className="p-3 flex justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card white-glassmorphism  mb-8">
 						<div className="flex justify-between flex-col w-full h-full">
 							<div className="flex justify-between items-start">
@@ -55,21 +53,14 @@ const Welcome = () => {
 								<BsInfoCircle fontSize={17} color="#fff" />
 							</div>
 							<div>
-								<p className="text-white font-light text-sm">
-									{shortenAddress(address || defaultAddress)}
-								</p>
+								<p className="text-white font-light text-sm">{shortenAddress(defaultAddress)}</p>
 								<p className="text-white font-semibold text-lg mt-1">Ethereum</p>
 							</div>
 						</div>
 					</div>
 
-					<div className="w-[340px]">
-						<Input
-							className="bg-white/20 text-white/70"
-							placeholder="Enter address"
-							onChange={(e) => setAddress(e.target.value)}
-							value={address}
-						/>
+					<div className="w-[500px]">
+						<FormExchange coinList={[]} />
 					</div>
 				</div>
 			</div>
