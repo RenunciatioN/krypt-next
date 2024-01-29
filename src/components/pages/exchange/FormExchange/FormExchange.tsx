@@ -12,18 +12,19 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useWatch } from "react-hook-form";
-import { ArrowLeftRight, MoreHorizontal } from "lucide-react";
 import { InputSpinner } from "@/components/icons/InputSpinner";
 import { FormSkeleton } from "./FormSkeleton";
 import { useDebounce } from "@uidotdev/usehooks";
+import { cn } from "@/lib/utils";
 interface IProps {
 	coinList: [];
+	className?: string;
 }
 interface IResponse {
 	[key: string]: number;
 }
 
-const FormExchange: FC<IProps> = ({ coinList }) => {
+const FormExchange: FC<IProps> = ({ coinList, className }) => {
 	const { form, functions, isLoading } = useFormExchange();
 	const values = useWatch({
 		name: ["paymentCoin", "receivedCoin", "paymentAmount"],
@@ -52,7 +53,7 @@ const FormExchange: FC<IProps> = ({ coinList }) => {
 					e.preventDefault();
 					functions.onSubmit();
 				}}
-				className="p-6 border border-1 rounded-xl backdrop-blur-xs bg-gray-400/10"
+				className={cn("p-6 border border-1 rounded-xl backdrop-blur-xs bg-gray-400/10", className)}
 			>
 				<div className="flex gap-6 mb-2 items-center">
 					<FormField

@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { AppProvider } from "./Providers/AppProvider";
 
 import "@/assets/styles/global.css";
+import "@mantine/charts/styles.css";
 
 export const metadata: Metadata = {
 	title: "KRYPT EXCHANGE",

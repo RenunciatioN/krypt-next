@@ -59,9 +59,9 @@ const Welcome = () => {
 						</div>
 					</div>
 
-					<div className="w-[500px]">
+					{/* <div className="w-[500px]">
 						<FormExchange coinList={[]} />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>
