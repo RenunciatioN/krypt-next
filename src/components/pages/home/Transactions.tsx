@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import dummyData from "@/utils/dummyData";
 import { shortenAddress } from "@/utils/shortenAddress";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 interface ITransactionsCardProps {
 	addressTo: string;
@@ -15,11 +16,9 @@ const TransactionsCard: FC<ITransactionsCardProps> = ({ addressTo, addressFrom, 
 	return (
 		<div
 			className="bg-[#18191850] backdrop-blur-lg m-4 flex flex-1
-      2xl:min-w-[450px]
-      2xl:max-w-[500px]
-      sm:min-w-[270px]
-      sm:max-w-[300px]
-      min-w-full
+  w-[500px]
+      
+    
       flex-col p-3 rounded-md hover:shadow-2xl"
 		>
 			<div className="flex flex-col items-center w-full mt-3">
@@ -51,18 +50,14 @@ const Transactions = () => {
 	return (
 		<div className="flex w-full justify-center items-center 2xl:px-20 gradient-bg-transactions">
 			<div className="flex flex-col md:p-12 py-12 px-4">
-				{true ? (
-					<h3 className="text-white text-3xl text-center my-2">Latest Transactions</h3>
-				) : (
-					<h3 className="text-white text-3xl text-center my-2">
-						Connect your account to see the latest transactions
-					</h3>
-				)}
+				<h3 className="text-white text-3xl text-center my-2">Latest Transactions</h3>
 
-				<div className="flex flex-wrap justify-center items-center mt-10">
-					{[...dummyData].reverse().map((transaction, i) => (
-						<TransactionsCard key={transaction.id} {...transaction} />
-					))}
+				<div className="h-[20rem] rounded-md flex flex-col antialiased bg-whitedark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+					<InfiniteMovingCards direction="left" speed="slow">
+						{[...dummyData].reverse().map((transaction, i) => (
+							<TransactionsCard key={transaction.id} {...transaction} />
+						))}
+					</InfiniteMovingCards>
 				</div>
 			</div>
 		</div>

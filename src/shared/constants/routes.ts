@@ -4,7 +4,8 @@ export const routes = {
 	coins: "/coins",
 	tutorials: "/tutorials",
 	wallets: "/wallets",
-    profile: '/profile'
+    profile: '/profile',
+	dashboard: '/dashboard'
 };
 
 export const navLinks = [

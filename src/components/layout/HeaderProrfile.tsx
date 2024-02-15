@@ -52,6 +52,12 @@ const HeaderProrfile: FC<IProps> = () => {
 							<span>Profile</span>
 						</Link>
 					</DropdownMenuItem>
+					<DropdownMenuItem asChild>
+						<Link href={routes.dashboard}>
+							<User className="mr-2 h-4 w-4" />
+							<span>DashBoard</span>
+						</Link>
+					</DropdownMenuItem>
 					{/* <DropdownMenuItem asChild>
 						<div className="flex items-center">
 							<ModeToggle />

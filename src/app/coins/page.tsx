@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { TableCaption, TableHeader, TableRow, TableHead, TableBody, TableCell, Table } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 import { ICoin } from "@/@types/coins.interface";
-import Image from "next/image";
 import { coinmarketV1 } from "@/shared/constants/api-url";
 import { Chart } from "./chart";
 
@@ -20,6 +20,9 @@ const getData = async () => {
 
 	return data.data;
 };
+
+const url = "/cryptocurrency/quotes/historical";
+const coinmarket = "https://coinmarketcap.com/api/v1";
 
 const formatter = new Intl.NumberFormat("eu", { currency: "USD", minimumFractionDigits: 2 });
 

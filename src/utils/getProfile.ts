@@ -1,3 +1,9 @@
 import { api } from "./api";
 
-export const getProfile = () => api.get(`/get-profile`);
+interface User {
+	id: number;
+	login: string;
+	role: string;
+}
+
+export const getProfile = () => api.get<User>(`/get-profile`);

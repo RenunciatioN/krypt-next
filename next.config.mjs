@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+import createNextIntlPlugin from "next-intl/plugin";
+
 const nextConfig = {
 	reactStrictMode: false,
 
@@ -8,7 +11,7 @@ const nextConfig = {
 				protocol: "https",
 				hostname: "s2.coinmarketcap.com",
 				port: "",
-				pathname: "static/img/coins/64x64/**",
+				pathname: "/static/img/coins/64x64/**",
 			},
 		],
 		// domains: ["s2.coinmarketcap.com"],

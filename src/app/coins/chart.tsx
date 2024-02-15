@@ -1,42 +1,29 @@
-"use client";
-
+"use server";
 import { FC } from "react";
-import { AreaChart } from "@mantine/charts";
-import { chartData } from "./chartData";
+
 
 interface IProps {
 	id: number;
 }
 
 const url = "/cryptocurrency/quotes/historical";
+const coinmarket = "https://coinmarketcap.com/api/v1";
 
-const Chart: FC<IProps> = ({ id }) => {
-	// const { data } = useQuery({
-	// 	queryKey: ["history-price-coins"],
-	// 	queryFn: async () =>
-	// 		(
-	// 			await axios.get<IRes>(
-	// 				`${coinmarket}/${url}?CMC_PRO_API_KEY=${process.env.COINMARKETCAP_API_KEY}&id=${id}&time_end=32452353`
-	// 			)
-	// 		).data,
-	// });
+// const getData = async (id: number) => {
+// 	const response = await fetch(
+// 		`${coinmarket}/${url}?CMC_PRO_API_KEY=${process.env.COINMARKETCAP_API_KEY}&id=${id}&time_end=32452353`
+// 	);
+
+// 	return response.json();
+// };
+
+const Chart: FC<IProps> = async ({ id }) => {
+	// const data = await getData(id);
 
 	return (
-		<AreaChart
-			h={64}
-			data={chartData}
-			dataKey="coin"
-			series={[{ name: "coin", color: "#05eded", label: "coin" }]}
-			curveType="bump"
-			tickLine="x"
-			withTooltip={false}
-			withXAxis={false}
-			withYAxis={false}
-			withDots={false}
-			gridAxis="none"
-			className="!h-[82px]"
+		
 
-		/>
+		<div>wadawd</div>
 	);
 };
 

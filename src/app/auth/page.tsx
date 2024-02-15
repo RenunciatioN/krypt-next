@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { FC } from "react";
+import Link from "next/link";
+import type { Metadata } from "next";
 
 import { StageProvider } from "@/app/auth/components/context/authStage/stageProvider";
 import { FormContainer } from "./components/FormContainer/FormContainer";
 import type { Stage } from "./components/context/authStage/stage.context";
 import { UserDataProvider } from "./components/context/userData/UserDataProvider";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
 	title: "Authentication",
@@ -21,6 +22,10 @@ const AuthPage: FC<AuthPageProps> = ({ searchParams }) => {
 
 	return (
 		<div className="gradient-bg absolute top-0 left-0 right-0 bottom-0 flex">
+			<Link href="/">
+				<Button variant="link">Back</Button>
+			</Link>
+
 			<div className="lg:p-8 bg-black/30 backdrop-blur-lg max-w-[450px] m-auto rounded-md ">
 				<UserDataProvider>
 					<StageProvider defaultStage={stage}>

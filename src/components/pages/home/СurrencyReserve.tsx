@@ -7,6 +7,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { currencyReserveData } from "@/data/currencyReserve";
 
 interface IProps {}
+
 interface ISlideItemProps {
 	icon: StaticImageData;
 	name: string;
@@ -15,7 +16,7 @@ interface ISlideItemProps {
 }
 
 const СurrencyReserve: FC<IProps> = () => {
-	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+	// const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 
 	return (
 		<div className="pt-10 pb-12 gradient-bg-carusel ">
@@ -32,12 +33,12 @@ const СurrencyReserve: FC<IProps> = () => {
 						</CarouselItem>
 					))}
 				</CarouselContent>
-				{!isSmallDevice && (
+			
 					<>
 						<CarouselPrevious variant="ghost" />
 						<CarouselNext variant="ghost" />
 					</>
-				)}
+			
 			</Carousel>
 		</div>
 	);

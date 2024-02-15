@@ -7,6 +7,7 @@ import { AppProvider } from "./Providers/AppProvider";
 
 import "@/assets/styles/global.css";
 import "@mantine/charts/styles.css";
+import { HeaderProvider } from "./Providers/HeaderProvider";
 
 export const metadata: Metadata = {
 	title: "KRYPT EXCHANGE",
@@ -24,7 +25,9 @@ export default function RootLayout({
 		<html lang="en" suppressHydrationWarning>
 			<body className={` ${inter.className}`}>
 				<AppProvider>
-					<Navbar />
+					<HeaderProvider>
+						<Navbar />
+					</HeaderProvider>
 
 					<main>{children}</main>
 				</AppProvider>
