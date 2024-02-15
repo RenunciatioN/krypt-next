@@ -11,7 +11,7 @@ import { InputSpinner } from "@/components/icons/InputSpinner";
 import { useFormExchangeQuery } from "./useFormExchangeQuery";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useSwapStage } from "@/app/exchange/context/swap-stage/useSwapStage";
-import { useExchange } from "@/app/exchange/context/exchange/useExchange";
+import { useExchangeContext } from "@/app/exchange/context/exchange/useExchange";
 
 const defaultState = {
 	value: 1,
@@ -34,7 +34,7 @@ const FormExchange = () => {
 
 	const exhangeFormQuery = useFormExchangeQuery({ sendItem, reciveItem });
 	const { setStage } = useSwapStage();
-	const { setExchange } = useExchange();
+	const { setExchange } = useExchangeContext();
 
 	const handleSubmit = () => {
 		setStage("waitingDeposit");

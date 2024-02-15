@@ -15,7 +15,7 @@ const ExchangeProvider: FC<IProps> = () => {
 	return (
 		<ExchangeStateProvider>
 			{stage === "creatingApplication" && (
-				<>
+				<div className="flex gap-10 justify-center">
 					<FormExchange />
 					<ExchangeInfo
 						swapData={{
@@ -25,7 +25,7 @@ const ExchangeProvider: FC<IProps> = () => {
 							processingTime: "2 minutes",
 						}}
 					/>
-				</>
+				</div>
 			)}
 
 			{stage === "waitingDeposit" && <DetailsExchange />}

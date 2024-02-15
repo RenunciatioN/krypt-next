@@ -10,10 +10,11 @@ const ExchangePage = () => {
 
 			<div className="pt-20 max-w-[1200px] mx-auto relative">
 				<SwapStageProvider>
-					<StageExchange />
-					<div className="mt-20 flex gap-10 justify-center ">
-						<ExchangeProvider />
+					<div className="mb-20">
+						<StageExchange />
 					</div>
+
+					<ExchangeProvider />
 				</SwapStageProvider>
 			</div>
 		</div>
