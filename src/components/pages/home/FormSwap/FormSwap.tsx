@@ -60,13 +60,13 @@ const FormSwap = () => {
 				</div>
 
 				<div>
-					<Label>You recive</Label>
+					<Label>You receive</Label>
 					<div className="flex items-center gap-2 mt-2">
 						<div className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground    disabled:cursor-not-allowed disabled:opacity-50 focus:outline focus:outline-1 outline-white/30">
 							{exhangeFormQuery.data &&
 								!exhangeFormQuery.query.isFetching &&
 								// exhangeFormQuery.data[reciveItem.coin].toFixed(7)
-								String(exhangeFormQuery.data[reciveItem.coin]).replace(/0*$/, "")}
+								exhangeFormQuery.data[reciveItem.coin]}
 
 							{exhangeFormQuery.query.isFetching && <InputSpinner fontSize={24} />}
 						</div>
