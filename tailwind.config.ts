@@ -83,6 +83,7 @@ const config: Config = {
 				"meteor-effect": "meteor 5s linear infinite",
 			},
 			colors: {
+				"gray-base": "#707079",
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",

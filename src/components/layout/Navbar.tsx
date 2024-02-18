@@ -24,6 +24,7 @@ const NavBarItem: FC<INavBarItemProps> = ({ title, classprops, href }) => (
 
 const Navbar = () => {
 	const isAuth: boolean = JSON.parse(cookies().get("authorization")?.value ?? "false");
+	const pathname = cookies().get("x-pathname")?.value ?? "/";
 
 	return (
 		<header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -39,7 +40,7 @@ const Navbar = () => {
 					{isAuth ? (
 						<HeaderProrfile />
 					) : (
-						<Link href={routes.auth} className="ml-4">
+						<Link href={`${routes.auth}?redirect=${pathname}`} className="ml-4">
 							<ShimmerBtn>Sign in</ShimmerBtn>
 						</Link>
 					)}

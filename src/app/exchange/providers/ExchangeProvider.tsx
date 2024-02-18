@@ -1,35 +1,32 @@
 "use client";
 
-import { ExchangeInfo } from "@/components/pages/exchange/ExchangeInfo";
-import { FormExchange } from "@/components/pages/exchange/FormExchange";
-import { FC } from "react";
+import { useEffect } from "react";
 import { useSwapStage } from "../context/swap-stage/useSwapStage";
-import { DetailsExchange } from "@/components/pages/exchange/DetailsExchange";
+import { DetailsExchange } from "@/app/exchange/components/DetailsExchange";
 import { ExchangeStateProvider } from "../context/exchange/exchangeStateProvider";
+import { CreatingApplication } from "../components/CreatingApplication";
+import { SwapStage } from "../context/swap-stage/swap-stage.context";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
-interface IProps {}
+const ExchangeProvider = () => {
+	const { stage, setStage } = useSwapStage();
+	const exchangeStorageData = useLocalStorage().getItem("exchange");
 
-const ExchangeProvider: FC<IProps> = () => {
-	const { stage } = useSwapStage();
+	useEffect(() => {
+		if (exchangeStorageData) {
+			const exchangeStage: SwapStage = JSON.parse(exchangeStorageData).stage;
+			setStage(exchangeStage);
+		}
+	}, [exchangeStorageData, setStage]);
 
 	return (
-		<ExchangeStateProvider>
-			{stage === "creatingApplication" && (
-				<div className="flex gap-10 justify-center">
-					<FormExchange />
-					<ExchangeInfo
-						swapData={{
-							confirmation: 4,
-							exchangeFee: 0.5,
-							networkCommission: "3 ETH",
-							processingTime: "2 minutes",
-						}}
-					/>
-				</div>
-			)}
+		<>
+			<ExchangeStateProvider>
+				{stage === "creatingApplication" && <CreatingApplication />}
 
-			{stage === "waitingDeposit" && <DetailsExchange />}
-		</ExchangeStateProvider>
+				{stage === "waitingDeposit" && <DetailsExchange />}
+			</ExchangeStateProvider>
+		</>
 	);
 };
 

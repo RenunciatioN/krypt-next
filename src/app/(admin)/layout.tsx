@@ -10,8 +10,6 @@ interface AdminLayoutProps {
 const AdminLayout: FC<AdminLayoutProps> = async ({ children }) => {
 	const data = await getProfile();
 
-	console.log("@AdminLayout", data?.status);
-
 	if (data?.status !== 200) return redirect("/auth");
 
 	if (data.data.role !== UserRole.ADMIN) {

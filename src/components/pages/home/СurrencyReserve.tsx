@@ -20,7 +20,7 @@ const СurrencyReserve: FC<IProps> = () => {
 
 	return (
 		<div className="pt-10 pb-12 gradient-bg-carusel ">
-			<h2 className="text-3xl text-center mb-10 text-white/80">Our Reserves for exchange</h2>
+			<h2 className="text-3xl text-center mb-10 text-white">Our Reserves for exchange</h2>
 
 			<Carousel className="max-w-[1000px] mx-auto relative">
 				<CarouselContent>
@@ -33,12 +33,11 @@ const СurrencyReserve: FC<IProps> = () => {
 						</CarouselItem>
 					))}
 				</CarouselContent>
-			
-					<>
-						<CarouselPrevious variant="ghost" />
-						<CarouselNext variant="ghost" />
-					</>
-			
+
+				<>
+					<CarouselPrevious variant="ghost" />
+					<CarouselNext variant="ghost" />
+				</>
 			</Carousel>
 		</div>
 	);

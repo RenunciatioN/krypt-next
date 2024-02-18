@@ -7,8 +7,9 @@ const words = ["benefit", "benefit", "benefit"];
 
 const Welcome = () => {
 	return (
-		<div className="flex w-full justify-center items-center px-20 dark:bg-black bg-white  dark:bg-grid-white/[0.1] bg-grid-black/[0.2]">
-			<Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
+		<div className="relative overflow-hidden flex w-full justify-center items-center px-20 dark:bg-black bg-white  dark:bg-grid-white/[0.1] bg-grid-black/[0.2]">
+			<Spotlight className="-left-10" fill="white" />
+
 			<div className="container flex md:flex-row flex-col gap-10 items-center justify-between md:py-32 py-12 px-4 ">
 				<div className="flex flex-1 justify-start items-start flex-col ">
 					<div className="flex items-center gap-3 mb-4">
@@ -19,10 +20,10 @@ const Welcome = () => {
 						))}
 					</div>
 
-					<h1 className="text-4xl font-semibold sm:text-6xl  text-white text-gradient py-1">
+					<h1 className="text-8xl font-bold sm:text-6xl   bg-gradient-to-b from-[#f4f4f5] to-[#2c2c2c] text-transparent  bg-clip-text py-1">
 						Swap Crypto <br /> across the world
 					</h1>
-					<p className="text-left mt-5 mb-2 text-white/70 font-light md:w-9/12 w-11/12 text-xl">
+					<p className="text-left mt-5 mb-2 text-[#6a6a73]  font-base md:w-9/12 w-11/12 text-xl">
 						Explore the crypto world. Swap cryptocurrencies easily on Krypto.
 					</p>
 				</div>

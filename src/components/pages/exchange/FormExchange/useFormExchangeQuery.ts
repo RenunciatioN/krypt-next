@@ -6,13 +6,23 @@ interface ISwapState {
 	coin: string;
 }
 
+interface Props {
+	sendItem: ISwapState;
+	reciveItem: ISwapState;
+	swapParams?: {
+		from: string;
+		to: string;
+		amount: string;
+	};
+}
+
 interface IResponse {
 	[key: string]: number;
 }
 
-export const useFormExchangeQuery = ({ sendItem, reciveItem }: { sendItem: ISwapState; reciveItem: ISwapState }) => {
+export const useFormExchangeQuery = ({ sendItem, reciveItem }: Props) => {
 	const exchangeQuery = useQuery({
-		queryKey: ["exchange-rate", sendItem.coin, reciveItem.coin, sendItem.value],
+		queryKey: ["exchange-rate", sendItem.coin, reciveItem.coin, sendItem.value, reciveItem.value],
 		queryFn: async () => {
 			return (
 				await axios.get<IResponse>(
