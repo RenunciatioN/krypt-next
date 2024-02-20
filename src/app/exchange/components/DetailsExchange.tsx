@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
 import { useExchangeContext } from "@/app/exchange/context/exchange/useExchange";
-import { Copy, Loader } from "lucide-react";
+import { Ban, Copy, Loader } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
@@ -71,16 +71,13 @@ const DetailsExchange: FC<IProps> = () => {
 							<p className="mb-4">
 								Payment amount: {exchangeData?.data.fromValue} {exchangeData?.data.fromCoin}
 							</p>
-							<div className="flex items-center gap-4 mb-4">
-								<div className="py-2 px-4 border border-1 border-white/10 rounded-md">
-									0x9a332cc71a44f7e8adde7d2426c1a32a48e50556
-								</div>
-
+							<div className="flex items-center gap-4 py-2 px-4 pr-1 mb-4 border border-1 border-white/10 rounded-md">
+								<span> 0x9a332cc71a44f7e8adde7d2426c1a32a48e50556</span>
 								<TooltipProvider delayDuration={400}>
 									<Tooltip>
 										<TooltipTrigger>
 											<div
-												className="p-2"
+												className="p-2 hover:opacity-60 transition-opacity"
 												onClick={() => {
 													copyHandler(testAddress);
 													toast("Address copied to clipboard");
@@ -141,8 +138,8 @@ const DetailsExchange: FC<IProps> = () => {
 			</div>
 			<div className="flex justify-center mt-4 bg-black border rounded-md max-w-[900px] mx-auto py-4 ">
 				<Dialog.AlertDialog>
-					<Dialog.AlertDialogTrigger className="w-[180px] border border-white/10 bg-red-700 rounded-md p-2 hover:opacity-80">
-						Cancel exchange
+					<Dialog.AlertDialogTrigger className="w-[180px] flex items-center gap-2 border border-white/10  rounded-md p-2 hover:opacity-80">
+						<Ban size={18} /> <span>Cancel exchange</span>
 					</Dialog.AlertDialogTrigger>
 
 					<Dialog.AlertDialogContent>

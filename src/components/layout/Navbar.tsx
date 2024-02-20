@@ -1,30 +1,22 @@
+"use client";
+
 import { FC } from "react";
-import { cookies, headers } from "next/headers";
 import Link from "next/link";
 import Image from "next/image";
 
 import { MobileNav } from "./MobileNav";
-import { HeaderProrfile } from "./HeaderProrfile";
-
 import logo from "@/assets/images/logo.png";
-import { navLinks, routes } from "@/shared/constants/routes";
-import { ShimmerBtn } from "../ui/shimmer-btn";
+import { navLinks } from "@/shared/constants/routes";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
-interface INavBarItemProps {
-	title: string;
-	href: string;
-	classprops?: string;
+
+interface Props {
+	headerBtn: React.ReactNode;
 }
 
-const NavBarItem: FC<INavBarItemProps> = ({ title, classprops, href }) => (
-	<li className={`mx-4 cursor-pointer hover:text-accent-blue transition-colors ${classprops}`}>
-		<Link href={href}>{title}</Link>
-	</li>
-);
-
-const Navbar = () => {
-	const isAuth: boolean = JSON.parse(cookies().get("authorization")?.value ?? "false");
-	const pathname = cookies().get("x-pathname")?.value ?? "/";
+const Navbar: FC<Props> = ({ headerBtn }) => {
+	const pathname = usePathname();
 
 	return (
 		<header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -33,17 +25,22 @@ const Navbar = () => {
 					<Image src={logo} alt="logo" className="w-32 cursor-pointer" />
 				</Link>
 				<ul className="text-white/80  md:flex hidden list-none flex-row gap-8 items-center flex-initial">
-					{navLinks.map((item, index) => (
-						<NavBarItem key={index} title={item.name} href={item.path} />
-					))}
+					{navLinks.map((item, index) => {
+						const isActive = pathname === item.path;
 
-					{isAuth ? (
-						<HeaderProrfile />
-					) : (
-						<Link href={`${routes.auth}?redirect=${pathname}`} className="ml-4">
-							<ShimmerBtn>Sign in</ShimmerBtn>
-						</Link>
-					)}
+						return (
+							<li
+								key={index}
+								className={cn("mx-4 cursor-pointer hover:text-accent-blue transition-colors ", {
+									["text-white border-b border-white"]: isActive,
+								})}
+							>
+								<Link href={item.path}>{item.name}</Link>
+							</li>
+						);
+					})}
+
+					<li>{headerBtn}</li>
 				</ul>
 
 				{/* <MobileNav>

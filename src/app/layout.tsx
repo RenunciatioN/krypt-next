@@ -4,10 +4,10 @@ import { Toaster } from "sonner";
 
 import { Navbar } from "@/components/layout/Navbar";
 import { AppProvider } from "./Providers/AppProvider";
+import { HeaderProvider } from "./Providers/HeaderProvider";
+import { HeaderBtn } from "@/components/layout/HeaderBtn";
 
 import "@/assets/styles/global.css";
-import "@mantine/charts/styles.css";
-import { HeaderProvider } from "./Providers/HeaderProvider";
 
 export const metadata: Metadata = {
 	title: "KRYPT EXCHANGE",
@@ -26,7 +26,7 @@ export default function RootLayout({
 			<body className={` ${inter.className}`}>
 				<AppProvider>
 					<HeaderProvider>
-						<Navbar />
+						<Navbar headerBtn={<HeaderBtn />} />
 					</HeaderProvider>
 
 					<main>{children}</main>

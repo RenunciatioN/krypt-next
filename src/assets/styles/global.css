@@ -21,6 +21,11 @@ main {
 	position: relative;
 }
 
+canvas {
+	width: 100% !important;
+	height: auto !important;
+}
+
 @layer base {
 	:root {
 		--accent-color: #0084ff;
@@ -47,7 +52,7 @@ main {
 	}
 
 	.dark {
-		--background: 240 10% 3.9%;
+		--background: #000;
 		--foreground: 0 0% 98%;
 		--card: 240 10% 3.9%;
 		--card-foreground: 0 0% 98%;
