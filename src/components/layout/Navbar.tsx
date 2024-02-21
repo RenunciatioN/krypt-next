@@ -10,7 +10,6 @@ import { navLinks } from "@/shared/constants/routes";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-
 interface Props {
 	headerBtn: React.ReactNode;
 }
@@ -24,16 +23,19 @@ const Navbar: FC<Props> = ({ headerBtn }) => {
 				<Link href="/" className="md:flex-[0.5] flex-initial justify-center items-center">
 					<Image src={logo} alt="logo" className="w-32 cursor-pointer" />
 				</Link>
-				<ul className="text-white/80  md:flex hidden list-none flex-row gap-8 items-center flex-initial">
+				<ul className="  md:flex hidden list-none flex-row gap-8 items-center flex-initial">
 					{navLinks.map((item, index) => {
 						const isActive = pathname === item.path;
 
 						return (
 							<li
 								key={index}
-								className={cn("mx-4 cursor-pointer hover:text-accent-blue transition-colors ", {
-									["text-white border-b border-white"]: isActive,
-								})}
+								className={cn(
+									"mx-4 cursor-pointer text-[#eff5ffb1] hover:text-white  transition-colors ",
+									{
+										["text-white"]: isActive,
+									}
+								)}
 							>
 								<Link href={item.path}>{item.name}</Link>
 							</li>

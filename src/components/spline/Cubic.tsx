@@ -1,19 +1,11 @@
 "use client";
 
+import { FC } from "react";
 import Spline from "@splinetool/react-spline";
-import { FC, Suspense, lazy } from "react";
 
 interface IProps {}
 
-const Cubic: FC<IProps> = () => {
-	return (
-		<Suspense fallback={<div className="w-full h-full bg-background"></div>}>
-			<Spline
-				scene="https://draft.spline.design/QIjSjUvKZYbJL1Mi/scene.splinecode"
-				// style={{ pointerEvents: "none" }}
-			/>
-		</Suspense>
-	);
-};
+const Cubic: FC<IProps> = () => <Spline scene="https://draft.spline.design/S-18ArVV92Xx1xPr/scene.splinecode" />;
+// const Cubic: FC<IProps> = () => <Spline scene="https://draft.spline.design/KAcvc-tSSABd7CUp/scene.splinecode" />;
 
 export { Cubic };

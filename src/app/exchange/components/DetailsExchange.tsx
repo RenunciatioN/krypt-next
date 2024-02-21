@@ -137,30 +137,36 @@ const DetailsExchange: FC<IProps> = () => {
 				</div>
 			</div>
 			<div className="flex justify-center mt-4 bg-black border rounded-md max-w-[900px] mx-auto py-4 ">
-				<Dialog.AlertDialog>
-					<Dialog.AlertDialogTrigger className="w-[180px] flex items-center gap-2 border border-white/10  rounded-md p-2 hover:opacity-80">
-						<Ban size={18} /> <span>Cancel exchange</span>
-					</Dialog.AlertDialogTrigger>
-
-					<Dialog.AlertDialogContent>
-						<Dialog.AlertDialogHeader>
-							<Dialog.AlertDialogTitle className="mb-4">Confirm action</Dialog.AlertDialogTitle>
-							<Dialog.AlertDialogDescription>
-								<p>It will not be possible to cancel the action</p>
-							</Dialog.AlertDialogDescription>
-						</Dialog.AlertDialogHeader>
-						<Dialog.AlertDialogFooter>
-							<Dialog.AlertDialogCancel>Cancel</Dialog.AlertDialogCancel>
-							<Dialog.AlertDialogAction onClick={cancelExchangeHandler}>Confirm</Dialog.AlertDialogAction>
-						</Dialog.AlertDialogFooter>
-					</Dialog.AlertDialogContent>
-				</Dialog.AlertDialog>
+				<AlertConfirm submitHanlder={cancelExchangeHandler} />
 			</div>
 		</>
 	);
 };
 
 export { DetailsExchange };
+
+const AlertConfirm = ({ submitHanlder }: { submitHanlder: () => void }) => (
+	<Dialog.AlertDialog>
+		<Dialog.AlertDialogTrigger className="w-[180px] flex items-center gap-2 border border-white/10  rounded-md p-2 hover:opacity-80 hover:border-red-700/60">
+			<Ban size={18} /> <span>Cancel exchange</span>
+		</Dialog.AlertDialogTrigger>
+
+		<Dialog.AlertDialogContent className="max-w-sm">
+			<Dialog.AlertDialogHeader>
+				<Dialog.AlertDialogTitle className="mb-4">Confirm action</Dialog.AlertDialogTitle>
+				<Dialog.AlertDialogDescription>
+					<p>It will not be possible to cancel the action</p>
+				</Dialog.AlertDialogDescription>
+			</Dialog.AlertDialogHeader>
+			<Dialog.AlertDialogFooter>
+				<Dialog.AlertDialogCancel>Cancel</Dialog.AlertDialogCancel>
+				<Dialog.AlertDialogAction className="bg-red-600 text-white hover:bg-red-700" onClick={submitHanlder}>
+					Confirm
+				</Dialog.AlertDialogAction>
+			</Dialog.AlertDialogFooter>
+		</Dialog.AlertDialogContent>
+	</Dialog.AlertDialog>
+);
 
 const TimerTimeLeft: FC<{ defaultTime: number }> = ({ defaultTime }) => {
 	const { time } = useCountdown(defaultTime);
