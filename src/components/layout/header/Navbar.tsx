@@ -3,11 +3,12 @@
 import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 import { MobileNav } from "./MobileNav";
 import logo from "@/assets/images/logo.png";
 import { navLinks } from "@/shared/constants/routes";
-import { usePathname } from "next/navigation";
+import { HeaderDropMenu } from "./HeaderProrfile";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -41,6 +42,10 @@ const Navbar: FC<Props> = ({ headerBtn }) => {
 							</li>
 						);
 					})}
+
+					<li>
+						<HeaderDropMenu />
+					</li>
 
 					<li>{headerBtn}</li>
 				</ul>

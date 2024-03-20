@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 
-import { Navbar } from "@/components/layout/Navbar";
+import { Navbar } from "@/components/layout/header/Navbar";
 import { AppProvider } from "./Providers/AppProvider";
 import { HeaderProvider } from "./Providers/HeaderProvider";
-import { HeaderBtn } from "@/components/layout/HeaderBtn";
+import { HeaderBtn } from "@/components/layout/header/HeaderBtn";
 
 import "@/assets/styles/global.css";
 

@@ -51,9 +51,9 @@ const Welcome = () => {
 										<path
 											d="M10.75 8.75L14.25 12L10.75 15.25"
 											stroke="currentColor"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="1.5"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="1.5"
 										></path>
 									</svg>
 								</span>
@@ -64,9 +64,7 @@ const Welcome = () => {
 
 				<div className="relative flex flex-col flex-1 items-center justify-start w-full mf:mt-0  ">
 					<div className="z-10 w-[600px] h-[600px]">
-						<Suspense fallback={null}>
-							<Cubic />
-						</Suspense>
+						<Suspense fallback={null}>{/* <Cubic /> */}</Suspense>
 					</div>
 				</div>
 			</div>

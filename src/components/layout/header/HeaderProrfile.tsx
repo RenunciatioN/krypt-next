@@ -2,13 +2,11 @@
 
 import Link from "next/link";
 import { FC } from "react";
-import { useRouter } from "next/navigation";
-import { LogOut, MenuIcon, User } from "lucide-react";
+import { MenuIcon, User } from "lucide-react";
 
-import { AuthService } from "@/services/auth.service";
 import { routes } from "@/shared/constants/routes";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Button } from "../ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "../../ui/avatar";
+import { Button } from "../../ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -17,13 +15,11 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from "../../ui/dropdown-menu";
 
 interface IProps {}
 
-const HeaderProrfile: FC<IProps> = () => {
-	const router = useRouter();
-
+const HeaderDropMenu: FC<IProps> = () => {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
@@ -64,21 +60,10 @@ const HeaderProrfile: FC<IProps> = () => {
 							<span>Светлый режим</span>
 						</div>
 					</DropdownMenuItem> */}
-					<DropdownMenuItem
-						disabled={false}
-						onClick={() => {
-							AuthService.logout();
-							router.push("/");
-							router.refresh();
-						}}
-					>
-						<LogOut className="mr-2 h-4 w-4" />
-						<span>Sign out</span>
-					</DropdownMenuItem>
 				</DropdownMenuGroup>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);
 };
 
-export { HeaderProrfile };
+export { HeaderDropMenu };
