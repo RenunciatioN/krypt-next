@@ -64,7 +64,7 @@ const Welcome = () => {
 
 				<div className="relative flex flex-col flex-1 items-center justify-start w-full mf:mt-0  ">
 					<div className="z-10 w-[600px] h-[600px]">
-						<Suspense fallback={null}>{/* <Cubic /> */}</Suspense>
+						{/* <Suspense fallback={null}><Cubic /></Suspense> */}
 					</div>
 				</div>
 			</div>

@@ -4,7 +4,13 @@ import { cn } from "@/lib/utils";
 import { ICoin } from "@/@types/coins.interface";
 import { coinmarketV1 } from "@/shared/constants/api-url";
 import { Chart } from "./chart";
+import { Metadata } from "next";
+import { generateTitle } from "@/utils/metadata";
 
+export const metadata: Metadata = {
+	title: generateTitle("Coins"),
+	description: "Coins",
+};
 interface IResponse {
 	data: ICoin[];
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 
-import { Navbar } from "@/components/layout/header/Navbar";
+import { Header } from "@/components/layout/header/Header";
 import { AppProvider } from "./Providers/AppProvider";
 import { HeaderProvider } from "./Providers/HeaderProvider";
 import { HeaderBtn } from "@/components/layout/header/HeaderBtn";
@@ -26,7 +26,7 @@ export default function RootLayout({
 			<body className={` ${inter.className}`}>
 				<AppProvider>
 					<HeaderProvider>
-						<Navbar headerBtn={<HeaderBtn />} />
+						<Header />
 					</HeaderProvider>
 
 					<main>{children}</main>

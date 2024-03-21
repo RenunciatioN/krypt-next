@@ -2,6 +2,13 @@ import { StageExchange } from "@/components/pages/exchange/StageExchange";
 import { SwapStageProvider } from "./context/swap-stage/swapStateProvider";
 
 import { ExchangeProvider } from "./providers/ExchangeProvider";
+import { Metadata } from "next";
+import { generateTitle } from "@/utils/metadata";
+
+export const metadata: Metadata = {
+	title: generateTitle("Exchange"),
+	description: "Exchange",
+};
 
 const ExchangePage = () => {
 	return (
