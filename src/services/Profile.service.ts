@@ -1,3 +1,3 @@
-import { api } from "@/utils/api";
+import { api } from "@/api/instance";
 
 export const ProfileService = {};

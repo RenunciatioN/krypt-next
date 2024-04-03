@@ -60,6 +60,7 @@ const Welcome = () => {
 							</Button>
 						</Link>
 					</div>
+					{/* <TonConnectButton  /> */}
 				</div>
 
 				<div className="relative flex flex-col flex-1 items-center justify-start w-full mf:mt-0  ">

@@ -3,6 +3,7 @@
 import { createContext } from "react";
 
 export type Exchange = {
+	id: string;
 	destinationAddres: string;
 	fromValue: number;
 	fromCoin: string;
@@ -16,6 +17,7 @@ export interface ExchangeContextProps {
 }
 
 export const defaultStateExchange = {
+	id: "",
 	destinationAddres: "",
 	fromValue: 0,
 	fromCoin: "",

@@ -3,4 +3,4 @@
 import { useContext } from "react";
 import { ExchangeContext } from "./exchange.context";
 
-export const useExchangeContext = () => useContext(ExchangeContext);
+export const useExchange = () => useContext(ExchangeContext);

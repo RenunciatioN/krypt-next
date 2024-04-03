@@ -1,0 +1,93 @@
+[
+	{
+		"symbol": "BTC",
+		"curency": "Bitcoin",
+		"simpleSymbol": "btc",
+		"network": "",
+		"icon": "/images/coins/btc.svg"
+	},
+	{
+		"symbol": "ETH",
+		"curency": "Ethereum",
+		"simpleSymbol": "eth",
+		"network": "",
+		"icon": "/images/coins/eth.svg"
+	},
+	{
+		"symbol": "USDT",
+		"curency": "Tether USD (Tron)",
+		"simpleSymbol": "usdttrc20",
+		"network": "trc20",
+		"icon": "/images/coins/tether.svg"
+	},
+	{
+		"symbol": "USDT",
+		"curency": "Tether USD (Ethereum)",
+		"simpleSymbol": "usdterc20",
+		"network": "erc20",
+		"icon": "/images/coins/tether.svg"
+	},
+	{
+		"symbol": "XMR",
+		"curency": "Monero",
+		"simpleSymbol": "xmr",
+		"network": "",
+		"icon": "/images/coins/xpr.svg"
+	},
+	{
+		"symbol": "BNB",
+		"curency": "Binance Coin (BSC)",
+		"simpleSymbol": "bnbbsc",
+		"network": "BSC",
+		"icon": "/images/coins/bnb-bsc.svg"
+	},
+	{
+		"symbol": "SOL",
+		"curency": "Solana",
+		"simpleSymbol": "sol",
+		"network": "",
+		"icon": "/images/coins/sol.svg"
+	},
+	{
+		"symbol": "XRP",
+		"curency": "XRP",
+		"simpleSymbol": "xrp",
+		"network": "",
+		"icon": "/images/coins/xrp.svg"
+	},
+	{
+		"symbol": "USDT",
+		"curency": "Tether USD (BSC)",
+		"simpleSymbol": "usdtbep20",
+		"network": "bsc",
+		"icon": "/images/coins/tether.svg"
+	},
+	{
+		"symbol": "TRX",
+		"curency": "Tron",
+		"simpleSymbol": "trx",
+		"network": "",
+		"icon": "/images/coins/trx.svg"
+	},
+	{
+		"symbol": "MATIC",
+		"curency": "Matic",
+		"simpleSymbol": "usdtbsc",
+		"network": "polygon",
+		"icon": "/images/coins/matic.svg"
+	},
+	{
+		"symbol": "ATOM",
+		"curency": "Cosmos",
+		"simpleSymbol": "atom",
+		"network": "",
+		"icon": "/images/coins/atom.svg"
+	},
+	{
+		"symbol": "LTC",
+		"curency": "Litecoin",
+		"simpleSymbol": "ltc",
+		"network": "",
+		"icon": "/images/coins/ltc.svg"
+	}
+]

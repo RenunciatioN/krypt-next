@@ -3,7 +3,7 @@
 import { FC, useEffect, useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
-import { useExchangeContext } from "@/app/exchange/context/exchange/useExchange";
+import { useExchange } from "@/app/exchange/context/exchange/useExchange";
 import { Ban, Copy, Loader } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +15,8 @@ import { Meteors } from "@/components/ui/meteors";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useSearchParams } from "next/navigation";
 import * as Dialog from "@/components/ui/alert-dialog";
-import { useSwapStage } from "../context/swap-stage/useSwapStage";
+import { useSwapStage } from "../../context/swap-stage/useSwapStage";
+import { useWaitingDeposit } from "./useWaitingDeposit";
 // const defaultLeftTime = 600; //seconds
 
 const testAddress = "0x9a332cc71a44f7e8adde7d2426c1a32a48e50556";
@@ -24,26 +25,21 @@ interface IProps {}
 
 const DetailsExchange: FC<IProps> = () => {
 	const [exchangeData, setExchangeData] = useState<ExchangeLocalStoregeData | null>(null);
-	const { exchange } = useExchangeContext();
 	const { setStage } = useSwapStage();
 	const { copyHandler } = useCopyToClipboard();
 	const localStorage = useLocalStorage();
 	const exchangeDataStorage = localStorage.getItem("exchange");
+	// const orderId = useSearchParams().get("orderId");
+	const orderId = "ew1p3bb61q3smkt4";
 
-	const orderId = useSearchParams().get("orderId");
+	const { data, query } = useWaitingDeposit(orderId);
 
 	useEffect(() => {
 		if (exchangeDataStorage) {
 			const exchangeData: ExchangeLocalStoregeData = JSON.parse(exchangeDataStorage);
 			setExchangeData(exchangeData);
-		} else {
-			setExchangeData({
-				orderId: orderId ?? "1",
-				stage: "waitingDeposit",
-				data: exchange,
-			});
 		}
-	}, [exchangeDataStorage, setExchangeData]);
+	}, [exchangeDataStorage]);
 
 	const cancelExchangeHandler = () => {
 		setExchangeData(null);
@@ -54,10 +50,13 @@ const DetailsExchange: FC<IProps> = () => {
 		});
 	};
 
+	if (query.checkOrderQuery.isFetching) return;
+	if (data.exhange?.status !== "waiting") return;
+
 	return (
 		<>
 			<div className="relative overflow-hidden max-w-[900px] mx-auto bg-black border rounded-md p-8 ">
-				<Meteors number={20} />
+				{/* <Meteors number={20} /> */}
 				<div className="flex justify-between ">
 					<div>
 						<div className="flex items-center justify-between gap-10 mb-14">
@@ -69,10 +68,11 @@ const DetailsExchange: FC<IProps> = () => {
 						</div>
 						<div>
 							<p className="mb-4">
-								Payment amount: {exchangeData?.data.fromValue} {exchangeData?.data.fromCoin}
+								Payment amount: {data.exhange?.amount_from}{" "}
+								{data.exhange?.currency_from.toLocaleUpperCase()}
 							</p>
 							<div className="flex items-center gap-4 py-2 px-4 pr-1 mb-4 border border-1 border-white/10 rounded-md">
-								<span> 0x9a332cc71a44f7e8adde7d2426c1a32a48e50556</span>
+								<span>{data.exhange?.address_from}</span>
 								<TooltipProvider delayDuration={400}>
 									<Tooltip>
 										<TooltipTrigger>
@@ -112,7 +112,7 @@ const DetailsExchange: FC<IProps> = () => {
 									toast("Order ID copied to clipboard");
 								}}
 							>
-								Order ID - #{exchangeData?.orderId}
+								Order ID - #{orderId}
 							</Badge>
 						</div>
 						<div className="p-1 border rounded-md relative z-20">
